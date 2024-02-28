@@ -15,7 +15,15 @@ export type Position = {
   lng: number;
 };
 
-const Map = () => {
+//TODO to change data
+interface CustomMapProps {
+  data?: any;
+}
+
+const CustomMap = (props: CustomMapProps) => {
+  const { data } = props;
+  console.log(data);
+
   return (
     <Stack sx={MapStyle}>
       <MapContainer
@@ -33,4 +41,4 @@ const Map = () => {
   );
 };
 
-export default Map;
+export default CustomMap;

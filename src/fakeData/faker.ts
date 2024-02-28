@@ -1,5 +1,5 @@
-import { GetHousingsDto, Housing, HousingInfos, HousingType } from "@services/housing/housing.model";
-import { Tenant } from "@services/tenant/tenant.model";
+import { GetHousingsDto, Housing, HousingType } from "@services/housing/housing.model";
+import { GetTenantsDto, Tenant } from "@services/tenant/tenant.model";
 import { faker } from "@faker-js/faker";
 
 // Function to generate a random housing object
@@ -36,29 +36,27 @@ const generateRandomTenant = (): Tenant => ({
   lastname: faker.person.lastName(),
   age: faker.number.int({ min: 18, max: 70 }),
   gender: faker.helpers.arrayElement(["Male", "Female"]),
+  address: {
+    address: faker.location.streetAddress(),
+    complementaryAddress: faker.location.secondaryAddress(),
+    zip: faker.location.zipCode(),
+    city: faker.location.city(),
+    country: faker.location.country(),
+  },
 });
 
-// Function to generate housing infos with tenants
-const generateHousingInfos = (numTenants: number): HousingInfos => {
-  const housing: Housing = generateRandomHousing();
-  const occupants: Tenant[] = Array.from({ length: numTenants }, generateRandomTenant);
-  return { housing, occupants };
-};
+const housing: Housing[] = Array.from({ length: 30 }, generateRandomHousing);
 
-// Function to generate an array of HousingInfos
-const generateData = (numHousingInfos: number, numTenantsPerHousing: number): HousingInfos[] => {
-  return Array.from({ length: numHousingInfos }, () => generateHousingInfos(numTenantsPerHousing));
-};
-
-// Set the number of housing infos and tenants per housing you want
-const numHousingInfos = 10;
-const numTenantsPerHousing = 3;
-
-// Call the function to generate data
-export const generatedHousingInfos: HousingInfos[] = generateData(numHousingInfos, numTenantsPerHousing);
+const tenants: Tenant[] = Array.from({ length: 30 }, generateRandomTenant);
 
 export const housingTableFakeData: GetHousingsDto = {
-  housingInfos: generatedHousingInfos,
-  total: generatedHousingInfos.length,
+  housing: housing,
+  total: housing.length,
+  page: 1,
+};
+
+export const tenantTableFakeData: GetTenantsDto = {
+  tenants: tenants,
+  total: tenants.length,
   page: 1,
 };

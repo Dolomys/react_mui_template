@@ -14,16 +14,12 @@ export enum HousingType {
   APPARTMENT = "APPARTMENT",
 }
 
-export interface HousingInfos {
-  housing: Housing;
-  occupants: Tenant[];
-}
-
 export interface Housing {
   type: HousingType;
   pictures: string[];
   rooms: number;
   bedrooms: number;
+  tenants?: Tenant[];
   address: HousingAddress;
   price: number;
   sizeInM2: number;
@@ -37,7 +33,7 @@ export interface Housing {
 }
 
 export interface GetHousingsDto extends GetFiltersDto {
-  housingInfos: HousingInfos[];
+  housing: Housing[];
 }
 
 export interface HousingFilters extends Partial<Housing>, BasicPagination {}
