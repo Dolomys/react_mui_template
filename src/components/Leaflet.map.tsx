@@ -10,12 +10,11 @@ const MapStyle = {
   width: "100%",
 };
 
-export type Position = {
+export interface Position {
   lat: number;
   lng: number;
-};
+}
 
-//TODO to change data
 interface CustomMapProps {
   data?: any;
 }

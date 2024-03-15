@@ -6,19 +6,19 @@ const fonts = `
         font-family: 'Poppins';
         font-weight: 400;
         src: local('Poppins'),
-        url(${PoppinsRegular}) format('truetype');
+        url(${PoppinsRegular}) format('ttf');
     }
     @font-face {
         font-family: 'PoppinsBold';
         font-weight: 700;
         src: local('PoppinsBold'),
-        url(${PoppinsBold}) format('truetype');
+        url(${PoppinsBold}) format('ttf');
     }
     @font-face {
         font-family: 'PoppinsItalic';
         font-weight: 400;
         src: local('PoppinsItalic'),
-        url(${PoppinsItalic}) format('truetype');
+        url(${PoppinsItalic}) format('ttf');
     }
 `;
 

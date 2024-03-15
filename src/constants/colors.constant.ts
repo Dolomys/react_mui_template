@@ -1,11 +1,13 @@
 import { alpha } from "@mui/material";
 
 export const COLORS = {
-  primary: "#379ff2",
+  primary: "#3a51a9",
   secondary: "#FCE38A",
   third: "#EAFFD0",
   fourth: "#95E1D3",
-  background: "#F2F2F7",
+  background: "#f9f9f9",
+  defaultbg: "#fbf9f9",
+  textGray: "#6e7d8a",
   black: "#000",
   red: "#ff0000",
   blue: "#482AF4",

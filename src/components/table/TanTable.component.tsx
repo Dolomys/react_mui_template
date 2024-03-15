@@ -1,3 +1,4 @@
+import { COLORS } from "@constants/colors.constant";
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { getCoreRowModel, useReactTable, flexRender, ColumnDef, Row } from "@tanstack/react-table";
 import { ReactNode, useMemo } from "react";
@@ -36,12 +37,12 @@ function TanTable<T>(props: TanTableProps<T>) {
 
   return (
     <Paper sx={{ width: "100%", overflow: "hidden" }}>
-      <TableContainer sx={{ maxHeight: maxHeight ?? "80dvh" }}>
+      <TableContainer sx={{ maxHeight: maxHeight ?? "80dvh", borderRadius: "12px" }}>
         <Table size="small" stickyHeader sx={{ minWidth: minWidth }} aria-label={ariaLabel ?? "table"}>
           <colgroup>
             {colWidthsPercent?.map((colWidth, i) => <col key={"colWidth_" + i} width={`${colWidth}%`} />)}
           </colgroup>
-          <TableHead>
+          <TableHead sx={{ height: "50px" }}>
             <TableRow>
               {table.getFlatHeaders().map((header) => (
                 <TableCell
@@ -50,6 +51,8 @@ function TanTable<T>(props: TanTableProps<T>) {
                     colSpan: header.colSpan,
                     style: {
                       width: header.getSize(),
+                      zIndex: 999,
+                      color: COLORS.textGray,
                     },
                   }}
                 >
@@ -65,7 +68,7 @@ function TanTable<T>(props: TanTableProps<T>) {
               const isExpanded = expandedRow === row.id;
               return (
                 <>
-                  <TableRow key={row.id}>
+                  <TableRow key={row.id} sx={{ "&:hover": { bgcolor: COLORS.grey[200] } }}>
                     {row.getVisibleCells().map((cell) => {
                       return (
                         <TableCell

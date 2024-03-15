@@ -4,6 +4,7 @@ import { alpha, Components } from "@mui/material";
 declare module "@mui/material/Button" {
   interface ButtonPropsVariantOverrides {
     containedLight: true;
+    secondary: true;
     round: true;
   }
 
@@ -20,7 +21,7 @@ const button: Components = {
     styleOverrides: {
       root: {
         textTransform: "none",
-        borderRadius: "24px",
+        borderRadius: "12px",
         width: "fit-content",
         padding: "0.75rem 1.75rem",
         gap: "0.625rem",
@@ -57,6 +58,19 @@ const button: Components = {
             boxShadow:
               "0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)",
             backgroundColor: alpha(COLORS.grey[300], 0.2),
+          },
+        }),
+      },
+      {
+        props: { variant: "secondary" },
+        style: () => ({
+          color: COLORS.black,
+          backgroundColor: COLORS.secondary,
+          "&:hover": {
+            color: COLORS.black,
+            boxShadow:
+              "0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)",
+            backgroundColor: COLORS.secondary,
           },
         }),
       },

@@ -1,34 +1,41 @@
 import { Stack, Typography } from "@mui/material";
-import { NavLink } from "react-router-dom";
 import { ReactElement } from "react";
 import { COLORS } from "@constants/colors.constant";
-import { PageValues } from "@constants/routes.constants";
+import { Link } from "@tanstack/react-router";
 
 export interface SidebarItemProps {
   icon: ReactElement;
   label: string;
-  to: PageValues;
+  to: string;
   isExpended?: boolean;
 }
 
 const SidebarItem = (props: SidebarItemProps) => {
   const { icon, label, to, isExpended } = props;
 
-  const isActive: any = ({ isActive }: any) =>
-    isActive ? { backgroundColor: COLORS.primary, color: COLORS.white } : undefined;
-
   return (
     <Stack
       direction={isExpended ? "row" : "column"}
       alignItems={"center"}
       spacing={2}
-      sx={{ width: "100%", borderRadius: "12px", padding: "10px", textDecoration: "none", color: COLORS.primary }}
-      component={NavLink}
+      sx={{
+        width: "100%",
+        borderRadius: "12px",
+        padding: isExpended ? "10px" : "10px 0px",
+        textDecoration: "none",
+        color: COLORS.grey[500],
+      }}
+      component={Link}
       to={to}
-      style={isActive}
+      activeProps={{
+        style: {
+          backgroundColor: COLORS.primary,
+          color: COLORS.white,
+        },
+      }}
     >
       {icon}
-      {isExpended && <Typography>{label.toUpperCase()}</Typography>}
+      {isExpended && <Typography fontSize={"1rem"}>{label}</Typography>}
     </Stack>
   );
 };

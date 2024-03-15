@@ -21,7 +21,7 @@ export default defineConfig({
       "@components": path.resolve(__dirname, "src/components"),
       "@router": path.resolve(__dirname, "src/router"),
       "@constants": path.resolve(__dirname, "src/constants"),
-      "@screnns": path.resolve(__dirname, "src/screens"),
+      "@features": path.resolve(__dirname, "src/features"),
       "@store": path.resolve(__dirname, "src/store"),
       "@themes": path.resolve(__dirname, "src/themes"),
       "@utils": path.resolve(__dirname, "src/utils"),

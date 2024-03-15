@@ -11,6 +11,7 @@ import inputLabel from "./inputLabel.theme";
 import tabs from "./tabs.theme";
 import { CssOverrides } from "./cssOverrides.theme";
 import fonts from "@assets/fonts";
+import { frFR } from "@mui/material/locale";
 
 declare module "@mui/material/styles" {
   interface BreakpointOverrides {
@@ -23,22 +24,23 @@ declare module "@mui/material/styles" {
   }
 }
 
-const theme = createTheme({
-  palette,
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 900,
-      ld: 1200,
-      lg: 1500,
-      xl: 1700,
+const theme = createTheme(
+  {
+    palette,
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 900,
+        ld: 1200,
+        lg: 1500,
+        xl: 1700,
+      },
     },
-  },
-  typography: { fontFamily: "'Outfit', sans-serif" },
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: `${fonts}
+    typography: { fontFamily: "'Poppins', sans-serif" },
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: `${fonts}
       html {
           height: 100vh;
           -webkit-font-smoothing: auto;
@@ -52,16 +54,18 @@ const theme = createTheme({
         }
         ${CssOverrides}
        `,
+      },
+      ...button,
+      ...iconButton,
+      ...chip,
+      ...textfield,
+      ...switchTheme,
+      ...selectTheme,
+      ...inputLabel,
+      ...tabs,
     },
-    ...button,
-    ...iconButton,
-    ...chip,
-    ...textfield,
-    ...switchTheme,
-    ...selectTheme,
-    ...inputLabel,
-    ...tabs,
   },
-});
+  frFR
+);
 
 export default theme;

@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import { useTranslation } from "react-i18next";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import MapIconResponsive from "@svgs/mapIconResponsive.svg?react";
-import Map from "@components/Map";
+import Map from "@components/Leaflet.map";
 
 export type ObjectKeys<T> = keyof T;
 export const isDate = (x: any): x is Date => !isNaN(x) && x instanceof Date;
