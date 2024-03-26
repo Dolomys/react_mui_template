@@ -26,13 +26,13 @@
       "@fonts/*": ["./src/assets/fonts/*"],
       "@images/*": ["./src/assets/images/*"],
       "@components/*": ["./src/components/*"],
-      "@constants/*": ["./src/constants/*"],
+      "@constants/*": ["src/utils/constants/*"],
       "@features/*": ["src/features/*"],
       "@router/*": ["src/router/*"],
       "@store/*": ["./src/store/*"],
       "@themes/*": ["./src/themes/*"],
       "@utils/*": ["./src/utils/*"],
-      "@services/*": ["./src/services/*"]
+      "@services/*": ["src/api/services/*"]
     }
   },
   "include": ["src"],

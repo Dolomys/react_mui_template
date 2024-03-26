@@ -1,5 +1,5 @@
 import { Components, alpha } from "@mui/material";
-import { COLORS } from "../constants/colors.constant";
+import { COLORS } from "../utils/constants/colors.constant";
 
 const iconButton: Components = {
   MuiIconButton: {

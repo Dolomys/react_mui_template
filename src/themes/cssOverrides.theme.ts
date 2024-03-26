@@ -1,4 +1,4 @@
-import { COLORS } from "@constants/colors.constant";
+import { COLORS } from "@utils/constants/colors.constant";
 
 export const CssOverrides = `
 * {

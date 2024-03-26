@@ -1,5 +1,5 @@
-import { HousingFilters } from "@services/housing/housing.model";
-import { TenantFilters } from "@services/tenant/tenant.model";
+import { HousingFilters } from "src/api/services/housing/housing.model";
+import { TenantFilters } from "src/api/services/tenant/tenant.model";
 import { create } from "zustand";
 
 export interface GetFiltersDto {

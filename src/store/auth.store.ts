@@ -1,38 +1,43 @@
-import { AuthenticationResponseDto } from 'src/services/auth/auth.model';
-import { create } from 'zustand';
-import { createJSONStorage, persist } from 'zustand/middleware';
-import { UserStore } from './user.store';
+import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 interface AuthState {
   accessToken?: string;
+  refreshToken?: string;
 }
 
 interface AuthActions {
-  login: (by: AuthenticationResponseDto) => void;
   logout: () => void;
+  setAccessToken: (accessToken?: string) => void;
+  setRefreshToken: (refreshToken?: string) => void;
 }
 
 // @ts-expect-error: The getToken function is expected to return a valid token, but it may return undefined.
-const getToken = () => JSON.parse(localStorage.getItem('token'));
+const getToken = () => JSON.parse(localStorage.getItem("token"));
 
-export const AuthStore = create<AuthState & AuthActions>()(
+export const useAuthStore = create<AuthState & AuthActions>()(
   persist(
     (set) => ({
       accessToken: getToken()?.state.accessToken,
-      login: (auth: AuthenticationResponseDto) => {
-        set({ accessToken: auth.accessToken });
-        UserStore.setState({ user: auth.user });
-      },
+      refreshToken: getToken()?.state.refreshToken,
       logout: () => {
-        set({ accessToken: undefined });
-        window.location.replace('/');
-        UserStore.setState({ user: undefined });
-      }
+        set({ accessToken: undefined, refreshToken: undefined });
+        window.location.replace("/");
+      },
+      setAccessToken: (accessToken?: string) => {
+        set({ accessToken });
+      },
+      setRefreshToken: (refreshToken?: string) => {
+        set({ refreshToken });
+      },
     }),
     {
-      name: 'token',
+      name: "token",
       storage: createJSONStorage(() => localStorage),
-      partialize: ({ accessToken }) => ({ accessToken })
+      partialize: ({ accessToken, refreshToken }) => ({ accessToken, refreshToken }),
     }
   )
 );
+
+export const useAccessToken = () => useAuthStore((state) => state.accessToken);
+export const useLogout = () => useAuthStore((state) => state.logout);

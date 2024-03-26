@@ -1,6 +1,6 @@
 import { alpha, createTheme } from "@mui/material";
 import palette from "@themes/palette.theme";
-import { COLORS } from "@constants/colors.constant";
+import { COLORS } from "@utils/constants/colors.constant";
 import button from "./button.theme";
 import textfield from "@themes/textfield.theme.ts";
 import iconButton from "@themes/iconButton.theme.ts";

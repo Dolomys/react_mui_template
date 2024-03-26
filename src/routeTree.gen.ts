@@ -14,7 +14,7 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as TenantsImport } from './routes/tenants'
 import { Route as HousingImport } from './routes/housing'
 import { Route as CalendarImport } from './routes/calendar'
-import { Route as IndexImport } from './routes/index'
+import { Route as AuthenticatedImport } from './routes/_authenticated'
 
 // Create/Update Routes
 
@@ -33,8 +33,8 @@ const CalendarRoute = CalendarImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const IndexRoute = IndexImport.update({
-  path: '/',
+const AuthenticatedRoute = AuthenticatedImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -42,8 +42,8 @@ const IndexRoute = IndexImport.update({
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      preLoaderRoute: typeof IndexImport
+    '/_authenticated': {
+      preLoaderRoute: typeof AuthenticatedImport
       parentRoute: typeof rootRoute
     }
     '/calendar': {
@@ -64,7 +64,7 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren([
-  IndexRoute,
+  AuthenticatedRoute,
   CalendarRoute,
   HousingRoute,
   TenantsRoute,
