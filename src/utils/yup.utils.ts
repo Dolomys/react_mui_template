@@ -2,8 +2,10 @@ import I18nUtils from "@utils/i18n.utils.ts";
 import { boolean, date, mixed, number, string } from "yup";
 import { isNil, isString } from "lodash";
 import * as Yup from "yup";
+
 const { t } = I18nUtils;
 
+// Set all global error message for fields -- mostly used in const fieldsValidation
 Yup.setLocale({
   mixed: {
     required: t("errors.field.fieldRequired"),

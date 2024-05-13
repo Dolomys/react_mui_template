@@ -3,11 +3,7 @@ import { alpha } from "@mui/material";
 export const COLORS = {
   primary: "#3a51a9",
   secondary: "#FCE38A",
-  third: "#EAFFD0",
-  fourth: "#95E1D3",
   background: "#f9f9f9",
-  defaultbg: "#fbf9f9",
-  textGray: "#6e7d8a",
   black: "#000",
   red: "#ff0000",
   blue: "#482AF4",
@@ -22,11 +18,4 @@ export const COLORS = {
     400: "rgba(0, 0, 0, 0.30)",
     500: "RGB(149, 149, 166)",
   },
-  NOT_KNOWN: "rgba(111, 204, 102)",
-  KNOWN: "rgba(222, 212, 0)",
-  CYBER_RISK: "rgba(36, 0, 224)",
-  PROVEN_RISK: "rgba(227, 79, 74)",
-  PRIVATE: "rgba(193, 0, 127, 1)",
-  COMPANY: "rgba(160, 47, 246, 1)",
-  PROFESSIONAL: "rgba(124, 53, 232, 1)",
 };

@@ -1,21 +1,15 @@
-export interface UserInfos {
-  firstName: string;
-  lastName: string;
-  phoneNumber: string;
-  address: string;
-  addressComplement: string;
-  postalCode: string;
-  city: string;
-  country: string;
-  email: string;
-  password: string;
+export enum UserRole {
+  ADMIN = "ADMIN",
+  SUPER_ADMIN = "SUPER_ADMIN",
+  USER = "USER",
 }
 
 export interface User {
   id: string;
   name: string;
-  userInfos?: UserInfos;
+  role: UserRole;
 }
+
 export interface UserToken {
   accessToken?: string;
   refreshToken?: string;
