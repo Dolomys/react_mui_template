@@ -4,12 +4,12 @@ import AuthGuard from "./guards/auth-guard";
 
 import { UserRole } from "@services/user/user.model";
 import { PAGES } from "./routes.constants";
-import Layout from "src/layouts/Layout";
 import Home from "@features/common/Home/Home";
-import Login from "@features/common/Login/Login";
-import Users from "@features/auth/admin/users/Users";
-import Products from "@features/auth/products/Products";
 import Demo from "@features/Demo";
+import Layout from "@components/layouts/Layout";
+import Login from "@features/auth/login/Login";
+import Users from "@features/admin/users/Users";
+import Products from "@features/products/Products";
 
 const router = createBrowserRouter([
   {
