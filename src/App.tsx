@@ -4,8 +4,8 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { RouterProvider } from "react-router-dom";
-import router from "@router/routes";
 import { Toaster } from "sonner";
+import router from "@router/routes";
 
 const queryClient = new QueryClient();
 

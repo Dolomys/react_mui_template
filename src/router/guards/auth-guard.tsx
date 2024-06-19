@@ -25,7 +25,7 @@ export default function AuthGuard({ children, roleGuard }: AuthGuardProps) {
       toast.error(t("wrongRole"));
       navigate(PAGES.HOME);
     }
-  }, [accessToken, navigate, roleGuard]);
+  }, [accessToken, navigate, roleGuard, user?.role, t]);
 
   useEffect(() => {
     check();
